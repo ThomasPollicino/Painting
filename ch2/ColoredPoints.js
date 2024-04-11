@@ -61,15 +61,25 @@ function connectVarialbesToGLSL(){
     return;
   }
 }
-
+//Constants
+const POINT=0;
+const TRIANGLE=1;
+const CIRCLE=2;
 //Globals UI based
 let g_selectedColor=[1.0,1.0,1.0,1.0];
-let g_selectedSize=5;
+let g_selectedSize=10;
+let g_selectedType=POINT;
+let g_segNum=10;
 
 function addActionsForHtmlUI(){
     document.getElementById('green').onclick = function() {g_selectedColor = [0.0,1.0,0.0,1.0]; };
     document.getElementById('red').onclick = function() {g_selectedColor = [1.0,0.0,0.0,1.0]; };
     document.getElementById('clearButton').onclick = function() {g_shapesList=[]; renderAllShapes();};
+
+    document.getElementById('pointButton').onclick = function() {g_selectedType=POINT};
+    document.getElementById('triButton').onclick = function() {g_selectedType=TRIANGLE};
+    document.getElementById('circleButton').onclick = function() {g_selectedType=CIRCLE};
+    document.getElementById('pictureButton').onclick = function() {pictureDrawing();};
 
 
     //Slider Events
@@ -79,6 +89,8 @@ function addActionsForHtmlUI(){
     console.log(g_selectedColor);
 
     document.getElementById('sizeSlide').addEventListener('mouseup', function() {g_selectedSize=this.value; });
+    document.getElementById('segmentSlide').addEventListener('mouseup', function() {g_segNum=this.value; });
+
 
 
 }   
@@ -112,7 +124,14 @@ function click(ev) {
 
   //Create and store the new point
   //let point = new Point(); 
-  let point = new Triangle(); 
+  let point;
+  if(g_selectedType==POINT){
+    point=new Point();
+  } else if(g_selectedType==TRIANGLE){
+    point=new Triangle();
+  } else {
+    point = new Circle(g_segNum);
+  }
   point.position=[x,y];
   point.color=g_selectedColor.slice();
   point.size=g_selectedSize;
@@ -166,4 +185,35 @@ function sendTextToHTML(text, htmlID){
         return;
     }
     htmlElm.innerHTML = text;
+}
+
+function pictureDrawing(){
+    let pictureTriangles = [
+        // Triangle 1
+        {position: [-0.5, 0.5], color: [1.0, 0.0, 0.0, 1.0], size: 20},
+        {position: [-0.5, -0.5], color: [1.0, 0.0, 0.0, 1.0], size: 20},
+        {position: [0.5, -0.5], color: [1.0, 0.0, 0.0, 1.0], size: 20},
+
+        // Triangle 2
+        {position: [0.2, 0.5], color: [0.0, 1.0, 0.0, 1.0], size: 20},
+        {position: [0.8, 0.5], color: [0.0, 1.0, 0.0, 1.0], size: 20},
+        {position: [0.5, 0.8], color: [0.0, 1.0, 0.0, 1.0], size: 20},
+
+        // Triangle 3
+        {position: [-0.8, -0.2], color: [0.0, 0.0, 1.0, 1.0], size: 20},
+        {position: [-0.2, -0.2], color: [0.0, 0.0, 1.0, 1.0], size: 20},
+        {position: [-0.5, -0.8], color: [0.0, 0.0, 1.0, 1.0], size: 20},
+
+        
+    ];
+
+    for (let i = 0; i < pictureTriangles.length; i += 3) {
+        let pic = new Triangle();
+        pic.position = pictureTriangles[i].position;
+        pic.color = pictureTriangles[i].color;
+        pic.size = pictureTriangles[i].size;
+        g_shapesList.push(pic);
+    }
+
+    renderAllShapes();
 }

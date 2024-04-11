@@ -13,7 +13,12 @@
         <p id="numdot">XXX</p>
     <button type="button" id="green">Green</button>
     <button tpye="button" id="red">Red</button>
-    <button type="button" id="clearButton">Clear</button>    
+    <button type="button" id="clearButton">Clear</button>   
+    <button tpye="button" id="pointButton">Point</button>
+    <button tpye="button" id="triButton">Triangle</button> 
+    <button tpye="button" id="circleButton">Circle</button> 
+    <button type="button" id="pictureButton">Picture</button>
+
 
     <p>
         Red <input type="range" min="0" max="100" value="100" class="slider" id="redSlide">
@@ -23,9 +28,10 @@
         Blue <input type="range" min="0" max="100" value="0" class="slider" id="blueSlide">
 
     <p>
-        Size <input type="range" min="5" max="40" value="0" class="slider" id="sizeSlide">
+        Size <input type="range" min="5" max="40" value="10" class="slider" id="sizeSlide">
     <p>
-  
+        Circle Segments <input type="range" min="3" max="40" value="10" class="slider" id="segmentSlide">
+    <p>  
 
 
     <script src="../lib/webgl-utils.js"></script>
@@ -34,5 +40,6 @@
     <script src="ColoredPoints.js"></script>
     <script src="Points.js"></script>
     <script src="Triangle.js"></script>
+    <script src="Circle.js"></script>
   </body>
 </html>
