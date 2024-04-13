@@ -187,33 +187,3 @@ function sendTextToHTML(text, htmlID){
     htmlElm.innerHTML = text;
 }
 
-function pictureDrawing(){
-    let pictureTriangles = [
-        // Triangle 1
-        {position: [-0.5, 0.5], color: [1.0, 0.0, 0.0, 1.0], size: 20},
-        {position: [-0.5, -0.5], color: [1.0, 0.0, 0.0, 1.0], size: 20},
-        {position: [0.5, -0.5], color: [1.0, 0.0, 0.0, 1.0], size: 20},
-
-        // Triangle 2
-        {position: [0.2, 0.5], color: [0.0, 1.0, 0.0, 1.0], size: 20},
-        {position: [0.8, 0.5], color: [0.0, 1.0, 0.0, 1.0], size: 20},
-        {position: [0.5, 0.8], color: [0.0, 1.0, 0.0, 1.0], size: 20},
-
-        // Triangle 3
-        {position: [-0.8, -0.2], color: [0.0, 0.0, 1.0, 1.0], size: 20},
-        {position: [-0.2, -0.2], color: [0.0, 0.0, 1.0, 1.0], size: 20},
-        {position: [-0.5, -0.8], color: [0.0, 0.0, 1.0, 1.0], size: 20},
-
-        
-    ];
-
-    for (let i = 0; i < pictureTriangles.length; i += 3) {
-        let pic = new Triangle();
-        pic.position = pictureTriangles[i].position;
-        pic.color = pictureTriangles[i].color;
-        pic.size = pictureTriangles[i].size;
-        g_shapesList.push(pic);
-    }
-
-    renderAllShapes();
-}
