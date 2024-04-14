@@ -40,9 +40,7 @@ function startGame() {
       { positions: [0.4, 0.0, 0.6, -0.2, 0.8, 0.0], color: [0.4, 0.4, 0.7, 1.0]},
       { positions: [0.2, -0.2, 0.4, -0.4, 0.6, -0.2], color: [0.4, 0.4, 0.7, 1.0]},  
       { positions: [-0.3, -0.1, -0.3, 0.2, 0.2, 0.0], color: [0.4, 0.4, 0.7, 1.0]},  
-      
-
-      
+    
 
       
     ];
@@ -127,7 +125,7 @@ function startGame() {
     alert(message);
   }
 
-  function isInsideObstacle(x, y) {//I got this function from ChatGPT but I had to tweak it to actually work
+  function isInsideObstacle(x, y) {
     for (let i = 4; i < 19; i++) {
       let triangle = g_shapesList[i];
       let positions = triangle.positions;
@@ -139,7 +137,7 @@ function startGame() {
     return false;
   }
   
-  function isPointInsideTriangle(x, y, x1, y1, x2, y2, x3, y3) {
+  function isPointInsideTriangle(x, y, x1, y1, x2, y2, x3, y3) {//I got this function from ChatGPT but I had to tweak it to actually work
     let area = 0.5 * (-y2 * x3 + y1 * (-x2 + x3) + x1 * (y2 - y3) + x2 * y3);
     let s = 1 / (2 * area) * (y1 * x3 - x1 * y3 + (y3 - y1) * x + (x1 - x3) * y);
     let t = 1 / (2 * area) * (x1 * y2 - y1 * x2 + (y1 - y2) * x + (x2 - x1) * y);

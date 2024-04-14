@@ -74,7 +74,7 @@ let g_segNum=10;
 function addActionsForHtmlUI(){
     document.getElementById('green').onclick = function() {g_selectedColor = [0.0,1.0,0.0,1.0]; };
     document.getElementById('red').onclick = function() {g_selectedColor = [1.0,0.0,0.0,1.0]; };
-    document.getElementById('clearButton').onclick = function() {g_shapesList=[]; renderAllShapes();};
+    document.getElementById('clearButton').onclick = function() {g_shapesList=[]; gameStarted=false; renderAllShapes();};
 
     document.getElementById('pointButton').onclick = function() {g_selectedType=POINT};
     document.getElementById('triButton').onclick = function() {g_selectedType=TRIANGLE};
@@ -176,7 +176,6 @@ function convertCoordinatesEventToGl(ev){
 function renderAllShapes(){
 
     var startTime = performance.now();
-    // Clear <canvas>
   gl.clear(gl.COLOR_BUFFER_BIT);
 
   //var len = g_points.length;
