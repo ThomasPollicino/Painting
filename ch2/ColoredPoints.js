@@ -80,6 +80,7 @@ function addActionsForHtmlUI(){
     document.getElementById('triButton').onclick = function() {g_selectedType=TRIANGLE};
     document.getElementById('circleButton').onclick = function() {g_selectedType=CIRCLE};
     document.getElementById('pictureButton').onclick = function() {pictureDrawing();};
+    document.getElementById('gameButton').onclick = function() {drawBoard();};
 
 
     //Slider Events
@@ -118,6 +119,11 @@ var g_shapesList=[];
 // var g_colors = [];  // The array to store the color of a point
 // var g_sizes = [];   //The array to size the color of a point
 
+
+let timerInterval;
+let startTime;
+let gameStarted=false;
+
 function click(ev) {
   let [x,y] = convertCoordinatesEventToGl(ev);
 
@@ -136,6 +142,13 @@ function click(ev) {
   point.color=g_selectedColor.slice();
   point.size=g_selectedSize;
   g_shapesList.push(point);
+
+
+  if (gameStarted) {
+    gameClick(ev, x, y);
+  }
+
+  
 
   
   // Store the coordinates to g_colors array

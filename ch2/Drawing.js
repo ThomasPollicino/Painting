@@ -71,13 +71,13 @@ function pictureDrawing() {
         { positions: [-0.07, -0.187, -0.8, -1, -0.01, -0.187], color: [0.0, 0.2, 1, 1.0]},
 
         //Secound Snow
-        { positions: [0.24, 0.3, 0.76, 0.3, 0.5, 0.8], color: [0.8, 0.8, 0.8, 1.0], size: 30 },
+        { positions: [0.24, 0.3, 0.76, 0.3, 0.5, 0.8], color: [0.8, 0.8, 0.8, 1.0]},
         
         // Snow
-        { positions: [0.29, 0.4, 0.71, 0.4, 0.5, 0.8], color: [1.0, 1.0, 1.0, 1.0], size: 30 },
-        { positions: [0.29, 0.4, 0.43, 0.4, 0.36, 0.3], color: [1.0, 1.0, 1.0, 1.0], size: 30 },
-        { positions: [0.43, 0.4, 0.57, 0.4, 0.5, 0.3], color: [1.0, 1.0, 1.0, 1.0], size: 30 },
-        { positions: [0.57, 0.4, 0.71, 0.4, 0.64, 0.3], color: [1.0, 1.0, 1.0, 1.0], size: 30 },
+        { positions: [0.29, 0.4, 0.71, 0.4, 0.5, 0.8], color: [1.0, 1.0, 1.0, 1.0]},
+        { positions: [0.29, 0.4, 0.43, 0.4, 0.36, 0.3], color: [1.0, 1.0, 1.0, 1.0]},
+        { positions: [0.43, 0.4, 0.57, 0.4, 0.5, 0.3], color: [1.0, 1.0, 1.0, 1.0]},
+        { positions: [0.57, 0.4, 0.71, 0.4, 0.64, 0.3], color: [1.0, 1.0, 1.0, 1.0]},
         
         // Tree
         { positions: [-0.65, -0.3, -0.55, -0.3, -0.55, 0.35], color: [0.5, 0.3, 0.2, 1.0]},
@@ -99,7 +99,6 @@ function pictureDrawing() {
         
     ];
 
-    // Clear the previous shapes
     g_shapesList = [];
 
     for (let i = 0; i < pictureTriangles.length; i++) {
